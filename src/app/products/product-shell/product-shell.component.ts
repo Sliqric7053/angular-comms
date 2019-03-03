@@ -10,6 +10,9 @@ export class ProductShellComponent implements OnInit {
     constructor() { }
 
     ngOnInit() {
+        // editProduct = false;
+        // this.editProduct = true;
+
     }
 
 }

@@ -9,28 +9,31 @@ import { ProductEditComponent } from './edit/product-edit.component';
 
 import { ProductService } from './product.service';
 import { ProductEditGuard } from './edit/product-edit-guard.service';
+import { ProductShellComponent } from './product-shell/product-shell.component';
+import { ProductShellDetailComponent } from './product-shell/product-shell-detail.component';
+import { ProductShellListComponent } from './product-shell/product-shell-list.component';
 
 @NgModule({
   imports: [
     SharedModule,
     RouterModule.forChild([
-      { path: '', component: ProductListComponent },
+      { path: '', component: ProductShellComponent },
       { path: ':id', component: ProductDetailComponent },
       {
         path: ':id/edit',
-        canDeactivate: [ ProductEditGuard ],
-        component: ProductEditComponent
-      }
-    ])
+        canDeactivate: [ProductEditGuard],
+        component: ProductEditComponent,
+      },
+    ]),
   ],
   declarations: [
     ProductListComponent,
     ProductDetailComponent,
-    ProductEditComponent
+    ProductEditComponent,
+    ProductShellComponent,
+    ProductShellDetailComponent,
+    ProductShellListComponent,
   ],
-  providers: [
-    ProductService,
-    ProductEditGuard
-  ]
+  providers: [ProductService, ProductEditGuard],
 })
-export class ProductModule { }
+export class ProductModule {}
